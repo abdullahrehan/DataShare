@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+<body>
+    <header><h2>Share your Files</h2></header>
+
+    <form enctype="multipart/form-data" method="POST" action="/upload">
+    <div id='drag'>
+    <img src='./dot.png' id="dot" accept="image/gif, image/jpeg, image/png"/>
+    
+    <div >
+    <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <p><img id="output" width="200" style="z-index: 2;" /></p>
+</div>
+    <h2 id="drag-text"> Drag your files here </h2>
+    <h1 style="display: none;" id="drag-text"> Dragging file</h1>
+    </div>
+    <br>
+    <h3>Upload files :</h3>
+    <div id='upload'>
+    <input type="file" name="files" id="fil" onchange="loadFile(event)"/>
+        <button type="submits">Submit</button>
+</div>
+    </form>
+
+
+  
+    <aside id="container">
+    <h2>Your Files Storage</h2>
+        <article>
+        <section>
+        {{#each data}}
+        <form method="GET" action="/download/{{this.FileName}}">
+        <div id="card" style="width:400px">
+            <img class="card-img-top" src="./uploads/{{this.FileName}}" alt="Card image" style="width:100%">
+        <div class="card-body">
+            <h4 class="card-title">John {{this.FileName}}</h4>
+            <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+            <button  type="submit" class="btn btn-primary">Download Image</button>
+        </div>
+        </div>
+        </form>
+        {{/each}}
+        
+        
+        
+        </section>
+        
+
+    </article>
+    <div id="search"><input type="search" placeholder="Search for file"/></div>
+    </aside>
+
+
+
+</body>
+
+<script>
+   const area=document.getElementById("drag")
+   area.addEventListener("dragover",(event)=>{
+       document.getElementById("drag-text").style.display="block"
+       document.getElementById("fil").value=event.dataTransfer.files
+
+   }) 
+   var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+   
+</html>

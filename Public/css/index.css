@@ -1,0 +1,91 @@
+*{overflow-y: hidden;}
+header{
+    background-color: cadetblue;
+    height: 2.5em;
+    text-align: center;    
+}
+aside{
+    background-color: darkslategray;
+ 
+    width: 615px;
+    height: 94vh;
+    top: 40px;
+    position: fixed;
+    left: 55%;
+}
+aside h2{
+    text-align: center;
+}
+article{
+    background-color: teal;
+    position: relative;
+    top: 0%;
+    height: 85%;
+    overflow-y: auto;
+}
+section{
+    text-align: center;
+}
+#card{
+    background-color: white;
+    text-align: center;
+    position: relative;
+    left: 17%;
+    top: 12%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#drag{
+    background-color: slategrey;
+    width: 55%;
+    height: 79vh;
+    text-align: center;
+    position: relative;
+    overflow-x: hidden;
+}
+#dot{
+    position: absolute;
+    width: 830px;
+    left: -5%;
+    top: -30%;
+}
+#drag-text{
+    position: absolute;
+    left: 30%;
+    top: 43%;
+}
+#upload{
+    width: 30vw;
+    height: 6vh;
+    position: relative;
+    left: 24%;
+    top: 20%;
+    margin-top: -37px;
+}
+
+#search{
+    width: 100%;
+    background-color: darkslategray;
+    height:7vh;
+}
+#search input{
+    width: 99%;
+    height: 79%;
+    margin-top: 4.5px;
+    border-radius: 25px;
+    background-color: white;
+    border: 1px solid #0000;
+}
+#search input::placeholder{
+    margin-left: 15px;
+    position: relative;
+    left: 20px;
+}
+#output{
+    vertical-align: middle;
+    border-style: none;
+    height: 364px;
+    width: 641px;
+    left: -4px;
+    position: relative;
+    top: 10px;}
